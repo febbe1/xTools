@@ -57,9 +57,9 @@ public class Main extends JavaPlugin implements Listener {
 			sender.sendMessage("§7-----------------------------------------------");
 		}
 		else if(cmd.getName().equalsIgnoreCase("broadcast")){
-			if (sender.hasPermission("mcwg.broadcast")){
+			if (sender.hasPermission("crafthard.broadcast")){
 				 if (args.length == 0){
-					 sender.sendMessage("&6** &9Poprawne uzycie to &7/broadcast <wiadomosc>");
+					 sender.sendMessage("§6** §9Poprawne uzycie to §7/broadcast <wiadomosc>");
 					 return true;
 				 }
 				 if (args.length >= 1){
