@@ -1,0 +1,99 @@
+package pl.xdejv.xtools;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Color;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class Main extends JavaPlugin implements Listener {
+	
+	private Object Main;
+	@Override
+	public void onEnable(){
+		Bukkit.getPluginManager().registerEvents(new Motd(), this);
+		System.out.println("§7§m----------------------------");
+		System.out.println("§2Nazwa pluginu: §7xTools");
+		System.out.println("§2Autor pluginu: §7xDejv");
+		System.out.println("§2Wercja pluginu: §71.0");
+		System.out.println("§2Pisany dla: §7CraftHard");
+		System.out.println("§2IP serwera: §7crafthard.pl");
+		System.out.println("§7§m----------------------------");
+	}
+	@Override
+	public void onDisable(){
+		Bukkit.getPluginManager().registerEvents(new Motd(), this);
+		System.out.println("§7§m----------------------------");
+		System.out.println("§2Nazwa pluginu: §7xTools");
+		System.out.println("§2Autor pluginu: §7xDejv");
+		System.out.println("§2Wercja pluginu: §71.0");
+		System.out.println("§2Pisany dla: §7CraftHard");
+		System.out.println("§2IP serwera: §7crafthard.pl");
+		System.out.println("§7§m----------------------------");
+	}
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if(cmd.getName().equalsIgnoreCase("pomoc")){
+			sender.sendMessage("§7-----------------------------------------------");
+			sender.sendMessage("§6* §2/vip §9Informacje o randze VIP");
+			sender.sendMessage("§6* §2/youtuber §9Informacje o randze YOUTUBER");
+			sender.sendMessage("§6* §2/drop §9Informacje o dropie ze stone");
+			sender.sendMessage("§6* §2/cobblex §9Informacje o magicznym cobblu");
+			sender.sendMessage("§6* §2/gildia §9Komendy gidlii");
+			sender.sendMessage("§6* §2/helpop §9Wiadomosc do admina");
+			sender.sendMessage("§6* §2/case §9Skrzynki jak w CS:GO");
+			sender.sendMessage("§7-----------------------------------------------");
+		}
+		else if(cmd.getName().equalsIgnoreCase("youtuber")){
+			sender.sendMessage("§7-----------------------------------------------");
+			sender.sendMessage("§6* §7YouTuber posiada:");
+			sender.sendMessage("§6* §2/kit vip §9Kit VIP");
+			sender.sendMessage("§6* §2/home §9Mozliwosc ustawienia domu");
+			sender.sendMessage("§6* §2/tphere §9Teleportuje do siebie gracza");
+			sender.sendMessage("§6* §9Darmowa skrzynke i klucz");
+			sender.sendMessage("§6* §9Jego kanal jest pod komenda §2/youtuberzy");
+			sender.sendMessage("§6* §9Wymagania: §7500 sub");
+			sender.sendMessage("§7-----------------------------------------------");
+		}
+		else if(cmd.getName().equalsIgnoreCase("broadcast")){
+			if (sender.hasPermission("mcwg.broadcast")){
+				 if (args.length == 0){
+					 sender.sendMessage("&6** &9Poprawne uzycie to &7/broadcast <wiadomosc>");
+					 return true;
+				 }
+				 if (args.length >= 1){
+					 String prefix = "§6**";
+					 String broadcastMessage = "§c ";
+					 for (int i = 0; i < args.length; i++) {
+						 broadcastMessage = broadcastMessage + args[i] + " ";
+					 }
+					 Bukkit.broadcastMessage(prefix + broadcastMessage);
+				 }
+			}
+			return false;
+		}
+		else if(cmd.getName().equalsIgnoreCase("cobblex")){
+			sender.sendMessage("§7-----------------------------------------------");
+			sender.sendMessage("§6* §7Aby scraftowac cobblex potrzebujesz:");
+			sender.sendMessage("§6* §79 Stakow §8cobblestona");
+			sender.sendMessage("§6* §7Wszystkie staki umieszczasz w craftingu");
+			sender.sendMessage("§7-----------------------------------------------");
+		}
+		else if(cmd.getName().equalsIgnoreCase("youtuberzy")){
+			sender.sendMessage("§7-----------------------------------------------");
+			sender.sendMessage("§6* §2tyler24_11 §9Kanal:");
+			sender.sendMessage("§6* §7https://www.youtube.com/channel/UCokQ1qn7tYUEHcpOElMBVjQ");
+			sender.sendMessage("§7-----------------------------------------------");
+		}
+		else if(cmd.getName().equalsIgnoreCase("vip")){
+			sender.sendMessage("§7-----------------------------------------------");
+			sender.sendMessage("§6* §7VIP posiada:");
+			sender.sendMessage("§6* §2/kit vip §9Kit VIP");
+			sender.sendMessage("§6* §2/home §9Mozliwosc ustawienia domu");
+			sender.sendMessage("§6* §2/tphere §9Teleportuje do siebie gracza");
+			sender.sendMessage("§6* §9Darmowa skrzynke i klucz");
+			sender.sendMessage("§7-----------------------------------------------");}
+		return false;
+	}
+}
